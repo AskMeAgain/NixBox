@@ -19,8 +19,11 @@
     };
 
     users.users.dev = {
+        initialPassword = "1234";
         isNormalUser = true;
         extraGroups = [ "wheel" ];
+        mutableUsers  = true;
+        
         home = "/home/dev";
         shell = pkgs.bash;
     };
