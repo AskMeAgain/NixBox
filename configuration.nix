@@ -24,7 +24,7 @@
 
     users.users.root.initialPassword = "root";
     users.users.dev = {
-        initialPassword = "1234";
+        initialHashedPassword = "$1$SaltSalt$9L0pb/SqzBFEMEccQY0sC/"; #1234
         isNormalUser = true;
         extraGroups = [ "wheel" ];
         

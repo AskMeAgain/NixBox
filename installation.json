@@ -22,10 +22,7 @@
                 "swapon /dev/sda2<enter><wait1>",
                 "nixos-generate-config --root /mnt<enter><wait3>",
                 "curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/AskMeAgain/NixBox/main/configuration.nix<enter><wait3>",
-                "nixos-install --no-root-passwd<enter><wait380>",
-                "passwd --root /mnt root<enter><wait1>1234<enter><wait1>1234<enter><wait1>",
-                "mkdir -p /home/dev/shared<enter>",
-                "shutdown now<enter>"
+                "nixos-install --no-root-passwd && mkdir -p /home/dev/shared && shutdown now<enter><wait10000>"
             ],
             "disk_size": "{{user `disksize`}}",
             "hard_drive_interface": "sata",
