@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ libs, config, pkgs, ... }:
 
 {
     imports =
@@ -13,7 +13,7 @@
         keyMap = "de";
     };
 
-    services.xserver {
+    services.xserver = {
         enable = true;
         xkb.layout = "de";
         layout = "de";
