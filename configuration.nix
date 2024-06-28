@@ -1,16 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
-{
-    let
-  lib = import <nixpkgs/lib>;
-in
 {
   imports = [
     ./hardware-configuration.nix
-  ] ++ lib.optional (builtins.fileExists /home/dev/user.nix) [ /home/dev/user.nix ];
-
-  # Other configuration settings go here
-}
+  ] ++ lib.optional (builtins.pathExists /home/dev/user.nix) [ /home/dev/user.nix ];
 
     boot.loader.grub.device = "/dev/sda";
     services.openssh.enable = true;
