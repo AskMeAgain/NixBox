@@ -10,5 +10,5 @@
     "nix-image": "https://channels.nixos.org/nixos-24.05/latest-nixos-minimal-x86_64-linux.iso",
     "disksize": "50480",
     "dotfiles-git": "https://github.com/AskMeAgain/dotfiles.git",
-    "vmname": "VM-Nix-002"
+    "vmname": "VM-Nix-003"
 }

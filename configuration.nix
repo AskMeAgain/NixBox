@@ -6,7 +6,9 @@
   ] ++ lib.optional (builtins.pathExists /home/dev/user.nix) [ /home/dev/user.nix ];
 
     boot.loader.grub.device = "/dev/sda";
-    services.openssh.enable = true;
+    services.openssh = {
+      enable = true;
+    };
 
     console = {
         keyMap = "de";
@@ -20,11 +22,11 @@
 
     users.mutableUsers = true;
 
+    users.users.root.initialPassword = "root";
     users.users.dev = {
         initialPassword = "1234";
         isNormalUser = true;
         extraGroups = [ "wheel" ];
-        mutableUsers  = true;
         
         home = "/home/dev";
         shell = pkgs.bash;
