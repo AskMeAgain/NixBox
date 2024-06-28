@@ -18,6 +18,8 @@
         layout = "de";
     };
 
+    users.mutableUsers = true;
+
     users.users.dev = {
         initialPassword = "1234";
         isNormalUser = true;
