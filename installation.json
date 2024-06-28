@@ -20,7 +20,7 @@
                 "mkswap -L swap /dev/sda2<enter><wait1>",
                 "mount /dev/disk/by-label/nixos /mnt<enter><wait1>",
                 "swapon /dev/sda2<enter><wait1>",
-                "nixos-generate-config --root /mnt<enter><wait3000>",
+                "nixos-generate-config --root /mnt<enter><wait3>",
                 "curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/AskMeAgain/NixBox/main/config.nix<enter><wait3>",
                 "nixos-install --no-root-passwd<enter><wait180>",
                 "passwd --root /mnt root<enter><wait1>1234<enter><wait1>1234<enter><wait1>",

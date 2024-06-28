@@ -9,9 +9,6 @@
     boot.loader.grub.device = "/dev/sda";
     services.openssh.enable = true;
 
-
-    users.users.user
-
     console = {
         keyMap = "de";
     }
