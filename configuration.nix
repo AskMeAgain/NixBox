@@ -19,6 +19,9 @@
     };
 
     users.users.dev = {
+        isNormalUser = true;
         extraGroups = [ "wheel" ];
+        home = "/home/dev";
+        shell = pkgs.bash;
     };
 }
