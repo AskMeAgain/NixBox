@@ -1,0 +1,66 @@
+{
+    "builders": [
+        {
+            "vm_name": "{{user `vmname`}}-temp1",
+            "type": "virtualbox-iso",
+            "keep_registered": true,
+            "output_directory": "./packer_cache/outputs/os/",
+            "iso_checksum": "{{user `nix-image-hash`}}",
+            "iso_url": "{{user `nix-image`}}",
+            "guest_os_type": "ArchLinux_64",
+            "boot_wait": "50s",
+            "shutdown_timeout": "10m",
+            "disable_shutdown": true,
+            "boot_command": [
+                "sudo -i<enter><wait3>",
+                "parted /dev/sda -- mklabel msdos<enter><wait1>",
+                "parted /dev/sda -- mkpart primary 1MB -8GB<enter><wait1>",
+                "parted /dev/sda -- mkpart primary linux-swap -8GB 100%<enter><wait1>",
+                "mkfs.ext4 -L nixos /dev/sda1<enter><wait1>",
+                "mkswap -L swap /dev/sda2<enter><wait1>",
+                "mount /dev/disk/by-label/nixos /mnt<enter><wait1>",
+                "swapon /dev/sda2<enter><wait1>",
+                "nixos-generate-config --root /mnt<enter><wait3>",
+                "curl -o /mnt/etc/nixos/configuration.nix https://raw.githubusercontent.com/AskMeAgain/Devbox/nix-os-config/provisioning-os/nix/configuration.nix<enter><wait3>",
+                "nixos-install --no-root-passwd<enter><wait180>",
+                "passwd --root /mnt root<enter><wait1>1234<enter><wait1>1234<enter><wait1>",
+                "mkdir -p /home/dev/shared<enter>",
+                "shutdown now<enter>"
+            ],
+            "disk_size": "{{user `disksize`}}",
+            "hard_drive_interface": "sata",
+            "guest_additions_mode": "disable",
+            "communicator": "none",
+            "virtualbox_version_file": "",
+            "headless": "false",
+            "cpus": "{{user `cpu-count`}}",
+            "memory": "{{user `memory`}}",
+            "vboxmanage": [
+                [
+                    "modifyvm",
+                    "{{.Name}}",
+                    "--vram",
+                    "128"
+                ],
+                [
+                    "modifyvm",
+                    "{{.Name}}",
+                    "--graphicscontroller",
+                    "{{user `graphics-controller`}}"
+                ],
+                [
+                    "modifyvm",
+                    "{{.Name}}",
+                    "--clipboard-mode",
+                    "bidirectional"
+                ],
+                [
+                    "modifyvm",
+                    "{{.Name}}",
+                    "--draganddrop",
+                    "disabled"
+                ]
+            ]
+        }
+    ]
+}
