@@ -12,7 +12,8 @@ if NOT EXIST packer.exe (
     powershell -Command "Expand-Archive packer.zip -DestinationPath .
     echo --- removing zip file ---
     del packer.zip
-    .\packer.exe plugins install github.com/hashicorp/virtualbox 
+    .\packer.exe plugins install github.com/hashicorp/virtualbox
+    .\packer.exe plugins install github.com/hashicorp/ansible
     echo --- packer is ready ---
 ) ELSE (
     echo --- packer already downloaded ---
@@ -31,7 +32,7 @@ if NOT EXIST ./shared-folders/%vmname%-shared\ (
 
 echo --- Building base ovf image ---
 if NOT EXIST .\packer_cache\outputs\os\%vmname%-temp1.ovf (
-    .\packer.exe build -force -var-file="settings.json" "provisioning-os/%type%/installation.json" || @RD /S /Q .\packer_cache\outputs\os && exit 1
+    .\packer.exe build -force -var-file="settings.json" "installation.json" || @RD /S /Q .\packer_cache\outputs\os && exit 1
 ) else (
     echo --- base ovf already exists ---
 )
@@ -39,6 +40,6 @@ if NOT EXIST .\packer_cache\outputs\os\%vmname%-temp1.ovf (
 timeout /T 2 >NUL
 
 echo --------------- applying user configs
-.\packer.exe build -force -var-file="settings.json" provisioning-os/%type%/package-provisioning.json
+.\packer.exe build -force -var-file="settings.json" package-provisioning.json
 
 pause
