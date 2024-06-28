@@ -22,9 +22,9 @@
 
     users.mutableUsers = true;
 
-    users.users.root.initialPassword = "root";
+    users.users.root.initialHashedPassword = "$6$my5Sq4TJgI7IVyva$BjnCcQP9zEdYrtYKW7J7X7cpV5VR3jw.2zF/BR16T5506qDpB0QKyH2fEm08qt84u1xvk.tnR8I06/lF6IpnC1"; #1234
     users.users.dev = {
-        initialHashedPassword = "$1$SaltSalt$9L0pb/SqzBFEMEccQY0sC/"; #1234
+        initialHashedPassword = "$6$my5Sq4TJgI7IVyva$BjnCcQP9zEdYrtYKW7J7X7cpV5VR3jw.2zF/BR16T5506qDpB0QKyH2fEm08qt84u1xvk.tnR8I06/lF6IpnC1"; #1234
         isNormalUser = true;
         extraGroups = [ "wheel" ];
         
