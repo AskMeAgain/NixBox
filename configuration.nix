@@ -12,6 +12,7 @@
 
     console = {
         keyMap = "de";
+        useXkbConfig = true;
     };
 
     services.xserver = {
@@ -36,10 +37,10 @@
       mutableUsers = true;
       users = {
         root = {
-          initialHashedPassword = "$6$jUFVxfhcAsgEMI6q$L/hHdbPClSqJCbDuCor4vqkX8U37vJthK4dRaSqAxkcB/gXRiVvGixQXvsR.91MDUEWbNUeCEnEt2fhg9mn8m/"; #1234
+          initialHashedPassword = "$5$2hwspBev0lJ.XFxs$tPnpwwudzLcJqh9e3DntbCrQOz3LUgmrmBKnBW8clz6"; #1234
         };
         dev = {
-          initialHashedPassword = "$6$jUFVxfhcAsgEMI6q$L/hHdbPClSqJCbDuCor4vqkX8U37vJthK4dRaSqAxkcB/gXRiVvGixQXvsR.91MDUEWbNUeCEnEt2fhg9mn8m/"; #1234
+          initialHashedPassword = "$5$2hwspBev0lJ.XFxs$tPnpwwudzLcJqh9e3DntbCrQOz3LUgmrmBKnBW8clz6"; #1234
           isNormalUser = true;
           createHome = true;
           extraGroups = [ "wheel" ];
