@@ -8,17 +8,17 @@
     boot.loader.grub.device = "/dev/sda";
     services.openssh = {
       enable = true;
+      settings.PasswordAuthentication = false;
     };
 
     console = {
         useXkbConfig = true;
     };
 
-    services.xserver = {
-        enable = true;
-        #xkb.layout = "de";
-        layout = "de";
-    };
+    #services.xserver = {
+    #    enable = true;
+    #    layout = "de";
+    #};
 
     virtualisation.virtualbox.guest.enable = true;
 
@@ -27,7 +27,7 @@
     ];
 
     users = {
-      mutableUsers = true;
+      mutableUsers = false;
       users = {
         root = {
           initialHashedPassword = "$5$2hwspBev0lJ.XFxs$tPnpwwudzLcJqh9e3DntbCrQOz3LUgmrmBKnBW8clz6"; #1234
