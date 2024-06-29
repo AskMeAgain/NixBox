@@ -8,7 +8,7 @@
     boot.loader.grub.device = "/dev/sda";
     services.openssh = {
       enable = true;
-      settings.PasswordAuthentication = false;
+      settings.PasswordAuthentication = true;
     };
 
     console = {
@@ -30,10 +30,10 @@
       mutableUsers = false;
       users = {
         root = {
-          initialPassword = "1234"; #1234
+          password = "1234"; #1234
         };
         dev = {
-          initialPassword = "1234"; #1234
+          password = "1234"; #1234
           isNormalUser = true;
           createHome = true;
           extraGroups = [ "wheel" ];
