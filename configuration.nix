@@ -17,7 +17,7 @@
     services.xserver = {
         enable = true;
         xkb.layout = "de";
-        layout = "de";
+        #layout = "de";
     };
 
     virtualisation.virtualbox.guest.enable = true;
