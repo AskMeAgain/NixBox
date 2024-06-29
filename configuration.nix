@@ -27,12 +27,6 @@
       ansible
     ];
 
-    i18n = {
-      consoleFont = "Lat2-Terminus16";
-      consoleKeyMap = "de";
-      defaultLocale = "de_DE.UTF-8";
-    };
-
     users = {
       mutableUsers = true;
       users = {
