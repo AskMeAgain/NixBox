@@ -30,10 +30,10 @@
       mutableUsers = false;
       users = {
         root = {
-          initialHashedPassword = "$5$2hwspBev0lJ.XFxs$tPnpwwudzLcJqh9e3DntbCrQOz3LUgmrmBKnBW8clz6"; #1234
+          initialPassword = "1234"; #1234
         };
         dev = {
-          initialHashedPassword = "$5$2hwspBev0lJ.XFxs$tPnpwwudzLcJqh9e3DntbCrQOz3LUgmrmBKnBW8clz6"; #1234
+          initialPassword = "1234"; #1234
           isNormalUser = true;
           createHome = true;
           extraGroups = [ "wheel" ];
