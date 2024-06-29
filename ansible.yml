@@ -24,8 +24,3 @@
       command: "nixos-rebuild switch"
       become: yes
       become_user: root
-
-    - name: setting up the file
-      shell: "yadm bootstrap"
-      environment:
-        NIXOS: "true"

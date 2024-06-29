@@ -19,8 +19,8 @@
 
     environment.systemPackages = with pkgs; [
       ansible
-      yadm
       git
+      yadm
     ];
 
     users = {
