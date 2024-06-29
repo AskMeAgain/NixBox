@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-  ] ++ lib.optional (builtins.pathExists /home/dev/user.nix) [ /home/dev/user.nix ];
+  ] ++ (lib.optional (builtins.pathExists /home/dev/user.nix) /home/dev/user.nix);
 
     boot.loader.grub.device = "/dev/sda";
     services.openssh = {

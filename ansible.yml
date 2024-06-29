@@ -16,7 +16,7 @@
       become: yes
       become_user: root
       with_items:
-        - "nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.05.tar.gz home-manager"
+        - "nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager"
         - "nix-channel --update"
         - "rm -f /home/dev/.zshrc"
 
