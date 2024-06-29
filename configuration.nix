@@ -15,15 +15,12 @@
         useXkbConfig = true;
     };
 
-    #services.xserver = {
-    #    enable = true;
-    #    layout = "de";
-    #};
-
     virtualisation.virtualbox.guest.enable = true;
 
     environment.systemPackages = with pkgs; [
       ansible
+      yadm
+      git
     ];
 
     users = {
