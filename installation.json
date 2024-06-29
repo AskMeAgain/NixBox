@@ -9,7 +9,7 @@
             "iso_url": "{{user `nix-image`}}",
             "guest_os_type": "ArchLinux_64",
             "boot_wait": "50s",
-            "shutdown_timeout": "10m",
+            "shutdown_timeout": "20m",
             "disable_shutdown": true,
             "boot_command": [
                 "sudo -i<enter><wait3>",
